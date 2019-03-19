@@ -18,5 +18,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('', include('pages.urls')), # estamos linkeado al urls.py dentro de pages (app)
+    path('listings/', include('listings.urls')),
     path('admin/', admin.site.urls),
 ]
