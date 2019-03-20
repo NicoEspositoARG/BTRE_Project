@@ -19,6 +19,7 @@ class Listing(models.Model):
     sqft = models.IntegerField()
     lot_size = models.DecimalField(max_digits=5, decimal_places=1)
     #vamos a usar el media folder para que desde admin se pueda usar
+    
     # tuve que hacer pip install Pillow para poder usar el upload_to
     photo_main = models.ImageField(upload_to='photos/%Y/%m/%d/') 
     photo_1 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True) 
