@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('', include('pages.urls')), # estamos linkeado al urls.py dentro de pages (app)
     path('listings/', include('listings.urls')),
     path('admin/', admin.site.urls),
-]
+] + static(settings.MEDIA_URL, documuent_root = settings.MEDIA_ROOT)  # para poder guardar las imagenes.
