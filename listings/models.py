@@ -1,10 +1,15 @@
-from django.db import models
+''' Listings Model
+'''
 from datetime import datetime
+from django.db import models
+
 from realtors.models import Realtor
 
 # Create your models here.
 
 class Listing(models.Model):
+    '''Clase Modelo Listing
+    '''
     realtor = models.ForeignKey(Realtor, on_delete=models.DO_NOTHING)
     title = models.CharField(max_length=200)
     address = models.CharField(max_length=200)
@@ -21,7 +26,7 @@ class Listing(models.Model):
     #vamos a usar el media folder para que desde admin se pueda usar
     
     # tuve que hacer pip install Pillow para poder usar el upload_to
-    photo_main = models.ImageField(upload_to='photos/%Y/%m/%d/') 
+    photo_main = models.ImageField(upload_to='photos/%Y/%m/%d/')
     photo_1 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True) 
     photo_2 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True) 
     photo_3 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True) 
@@ -35,4 +40,4 @@ class Listing(models.Model):
         return self.title
 
 
-# class Realtor(models.Model):    
+# class Realtor(models.Model):
