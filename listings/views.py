@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 
-from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+from django.core.paginator import Paginator # PageNotAnInteger, EmptyPage
 from .choices import price_choices, bedroom_choices, state_choices
 
 from .models import Listing
@@ -27,11 +27,11 @@ def index(request):
 
 def listing(request, listing_id):
     """ Get one specific listing object """
-    listing = get_object_or_404(Listing, pk=listing_id)
+    olisting = get_object_or_404(Listing, pk=listing_id)
     # va a chequear si existe el obj con el id que recibió
 
     context = {
-        'listing': listing
+        'listing': olisting
     }
     return render(request, 'listings/listing.html', context)
 

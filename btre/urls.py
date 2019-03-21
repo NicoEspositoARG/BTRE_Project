@@ -21,5 +21,6 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('', include('pages.urls')), # estamos linkeado al urls.py dentro de pages (app)
     path('listings/', include('listings.urls')),
+    path('accounts/', include('accounts.urls')),
     path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)  # para poder guardar las imagenes.
