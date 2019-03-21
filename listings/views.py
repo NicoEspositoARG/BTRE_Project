@@ -11,6 +11,7 @@ def index(request):
     listings = Listing.objects.order_by('-list_date').filter(is_published=True)
     # en lugar de usar .all, ordena por esa property en forma descendente con el -
     # el .filter es para filtrar por alguna condicion
+    # [:3] seguido al parentesis me limita a solo 3 resultados.
 
     paginator = Paginator(listings, 6) # límite de objs x página
     page = request.GET.get('page')
